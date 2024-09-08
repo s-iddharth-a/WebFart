@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fart Sound Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+button {
+padding: 20px 40px;
+  font-size: 24px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button: hover{
+  background-color: #ff9900;
+  
+}
+      </style>
+</head>
+  <body>
+
+    <button id = "fartButton">Play Fart Sound</button>
+    <audio id="fartSound" src ="atomic-fart-1.mp3"></audio>
+
+    <script>
+      const fartButton = document.getElementById("fartButton");
+      const fartSound = document.getElementById("fartSound");
+
+      fartButton.addEventListener('click', () => {
+      });
+    </script>
+  </body>
+</html>
+    
