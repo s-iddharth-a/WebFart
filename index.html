@@ -19,7 +19,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
+            background-color: #1e1e1e; /* Dark grey background */
+            color: #f0f0f0; /* Light text color for dark mode */
         }
 
         .container {
@@ -31,7 +32,7 @@
 
         /* Magic 8-ball Section */
         .eightball-section {
-            background-color: #fff;
+            background-color: #2e2e2e; /* Dark grey for the 8-ball section */
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -40,7 +41,7 @@
 
         .eightball-section h1 {
             font-size: 36px;
-            color: #333;
+            color: #f0f0f0; /* Light heading color */
             margin-bottom: 20px;
         }
 
@@ -48,16 +49,22 @@
             width: 100%;
             padding: 10px;
             font-size: 18px;
-            border: 2px solid #ccc;
+            background-color: #3e3e3e; /* Dark input field background */
+            border: 2px solid #555; /* Lighter border */
             border-radius: 5px;
+            color: #f0f0f0; /* Light text in the input */
             margin-bottom: 15px;
+        }
+
+        .eightball-section input::placeholder {
+            color: #bbb; /* Light grey placeholder text */
         }
 
         .eightball-section button {
             padding: 10px 20px;
             font-size: 20px;
             color: #fff;
-            background-color: #007bff;
+            background-color: #007bff; /* Blue button background */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -65,13 +72,13 @@
         }
 
         .eightball-section button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Darker blue on hover */
         }
 
         .eightball-section .response {
             margin-top: 20px;
             font-size: 24px;
-            color: #333;
+            color: #f0f0f0; /* Light response text */
         }
 
         /* Fart Button Section */
@@ -82,7 +89,7 @@
         .fart-section button {
             padding: 20px 40px;
             font-size: 24px;
-            background-color: #ffcc00;
+            background-color: #ffcc00; /* Yellow button */
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -90,7 +97,7 @@
         }
 
         .fart-section button:hover {
-            background-color: #ff9900;
+            background-color: #ff9900; /* Orange on hover */
         }
     </style>
 </head>
@@ -159,3 +166,4 @@
 </body>
 
 </html>
+
