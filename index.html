@@ -1,21 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fart Sound Website</title>
+    <title>Magic 8-ball and Fart Sound</title>
     <style>
-        body {
+        /* Basic Reset */
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            height: 100vh;
+            background-color: #f5f5f5;
         }
 
-        button {
+        .container {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Magic 8-ball Section */
+        .eightball-section {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .eightball-section h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .eightball-section input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .eightball-section button {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .eightball-section button:hover {
+            background-color: #0056b3;
+        }
+
+        .eightball-section .response {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Fart Button Section */
+        .fart-section {
+            text-align: center;
+        }
+
+        .fart-section button {
             padding: 20px 40px;
             font-size: 24px;
             background-color: #ffcc00;
@@ -24,25 +88,74 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+
+        .fart-section button:hover {
             background-color: #ff9900;
         }
     </style>
 </head>
+
 <body>
 
-    <button id="fartButton">Not Suspicious</button>
-    <audio id="fartSound" src="nuclear-fart-1.mp3"></audio>
+    <div class="container">
+        <!-- Magic 8-ball Section -->
+        <div class="eightball-section">
+            <h1>Magic 8-ball</h1>
+            <input type="text" id="userQuestion" placeholder="Ask a question..." />
+            <button id="askButton">Ask the 8-ball</button>
+            <div class="response" id="eightBallResponse"></div>
+        </div>
+
+        <!-- Fart Button Section -->
+        <div class="fart-section">
+            <button id="fartButton">Not Suspicious</button>
+            <audio id="fartSound" src="nuclear-fart-1.mp3"></audio>
+        </div>
+    </div>
 
     <script>
+        // Magic 8-ball Logic
+        const askButton = document.getElementById('askButton');
+        const eightBallResponse = document.getElementById('eightBallResponse');
+        const userQuestionInput = document.getElementById('userQuestion');
+
+        const getMagic8BallResponse = () => {
+            const randomNumber = Math.floor(Math.random() * 8);
+            let eightBall = '';
+
+            switch (randomNumber) {
+                case 0: eightBall = "It is certain"; break;
+                case 1: eightBall = "It is decidedly so"; break;
+                case 2: eightBall = "Reply hazy try again"; break;
+                case 3: eightBall = "Cannot predict now"; break;
+                case 4: eightBall = "Do not count on it"; break;
+                case 5: eightBall = "My sources say no"; break;
+                case 6: eightBall = "Outlook not so good"; break;
+                case 7: eightBall = "Signs point to yes"; break;
+                default: eightBall = "The ball is broken"; break;
+            }
+            return eightBall;
+        };
+
+        askButton.addEventListener('click', () => {
+            const userQuestion = userQuestionInput.value.trim();
+            if (userQuestion) {
+                eightBallResponse.textContent = `You asked: ${userQuestion} | 8-ball says: ${getMagic8BallResponse()}`;
+            } else {
+                eightBallResponse.textContent = "Please ask a question.";
+            }
+            userQuestionInput.value = ''; // Clear input after asking
+        });
+
+        // Fart Sound Logic
         const fartButton = document.getElementById("fartButton");
         const fartSound = document.getElementById("fartSound");
 
         fartButton.addEventListener('click', () => {
-            fartSound.play();  // This line makes the sound play
+            fartSound.play();
         });
     </script>
 
 </body>
-</html>
 
+</html>
